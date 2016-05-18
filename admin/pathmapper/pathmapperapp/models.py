@@ -1,17 +1,19 @@
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
+from geoposition.fields import GeopositionField
 
-class Location(models.Model):
-    lat = models.FloatField()
-    lng = models.FloatField()
-
-    def __str__(self):
-        return "Lat: " + str(self.lat) + " Lng: " + str(self.lng)
+# class Location(models.Model):
+#     lat = models.FloatField()
+#     lng = models.FloatField()
+#
+#     def __str__(self):
+#         return "Lat: " + str(self.lat) + " Lng: " + str(self.lng)
 
 class Plant(models.Model):
-    location = models.ForeignKey(Location, on_delete=models.CASCADE)
+    #location = models.ForeignKey(Location, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     description = models.TextField(null=True, blank=True, max_length=500)
+    location = GeopositionField()
     dateCreated = models.DateTimeField(auto_now_add=True)
     dateUpdated = models.DateTimeField(auto_now=True)
 
@@ -53,7 +55,7 @@ class Track(models.Model):
 
 class TrackPoint(models.Model):
     track = models.ForeignKey(Track, on_delete=models.CASCADE)
-    location = models.ForeignKey(Location, on_delete=models.CASCADE)
+    location = GeopositionField()
     dateCreated = models.DateTimeField(auto_now_add=True)
     dateUpdated = models.DateTimeField(auto_now_add=True)
 
@@ -62,9 +64,14 @@ class TrackPoint(models.Model):
 
 
 class UpdateManager(models.Model):
-    locationLastUpdate = models.DateTimeField(auto_now_add=True)
+    #locationLastUpdate = models.DateTimeField(auto_now_add=True)
     plantLastUpdate = models.DateTimeField(auto_now_add=True)
     collectionLastUpdate = models.DateTimeField(auto_now_add=True)
     plantCollectionLastUpdate = models.DateTimeField(auto_now_add=True)
     trackLastUpdate = models.DateTimeField(auto_now_add=True)
     trackPointLastUpdate = models.DateTimeField(auto_now_add=True)
+
+# Test model for geoposition
+class PointOfInterest(models.Model):
+    name = models.CharField(max_length=100)
+    position = GeopositionField()

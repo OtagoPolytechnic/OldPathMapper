@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'pathmapperapp',
+    'geoposition',
+    'easy_maps',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -107,7 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Pacific/Auckland'
 
 USE_I18N = True
 
@@ -125,3 +127,14 @@ STATIC_URL = '/static/'
 # Google maps API key
 
 MAPS_API_KEY = 'AIzaSyAetyUYMSLmP8t8dZb-xo1VU6W0-Xj5uvo'
+
+
+GEOPOSITION_MAP_OPTIONS = {
+    'center': {'lat': -45.858037301486206, 'lng': 170.52034378051758},
+    'zoom' : 16
+}
+
+GEOPOSITION_MARKER_OPTIONS = {
+    'cursor': 'move',
+    'position': {'lat':-45.858037301486206, 'lng': 170.52034378051758},
+}
