@@ -11,20 +11,12 @@ namespace PathMapper
     {
         public App()
         {
-            // The root page of your application
-            MainPage = new ContentPage
-            {
-                Content = new StackLayout
-                {
-                    VerticalOptions = LayoutOptions.Center,
-                    Children = {
-                        new Label {
-                            HorizontalTextAlignment = TextAlignment.Center,
-                            Text = "Welcome to Xamarin Forms!"
-                        }
-                    }
-                }
-            };
+            var tabs = new TabbedPage();
+
+            // demonstrates the map control with zooming and map-types
+            tabs.Children.Add(new MapPage { Title = "Map" });
+
+            MainPage = tabs;
         }
     }
 }
