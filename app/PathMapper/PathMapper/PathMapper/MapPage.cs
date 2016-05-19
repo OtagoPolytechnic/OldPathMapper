@@ -13,26 +13,16 @@ namespace PathMapper
         {
             map = new Map { HeightRequest = 100, WidthRequest = 960, VerticalOptions = LayoutOptions.FillAndExpand };
 
-            map.MoveToRegion(new MapSpan(new Position(0, 0), 360, 360));
+            //var gardensPosition = new Position(-45.856621, 170.518691); //Botanic Gardens Information Center
+            // Position doesn't seem to work in scope with the FromCenterAndRadius Method, it might have to be global
+            MapSpan gardensMap = MapSpan.FromCenterAndRadius(new Position(-45.856621, 170.518691), Distance.FromMeters(100));
+            map.MoveToRegion(gardensMap);
 
             var stack = new StackLayout { Spacing = 0 };
             stack.Children.Add(map);
             Content = stack;
         }
 
-        static void CalculateBoundingCoordinates(MapSpan region)
-        {
-            var center = region.Center;
-            var halfheightDegrees = region.LatitudeDegrees / 2;
-            var halfwidthDegrees = region.LongitudeDegrees / 2;
-
-            var left = center.Longitude - halfwidthDegrees;
-            var right = center.Longitude + halfwidthDegrees;
-            var top = center.Latitude + halfheightDegrees;
-            var bottom = center.Latitude - halfheightDegrees;
-
-            if (left < -180) left = 180 + (180 + left);
-            if (right > 180) right = (right - 180) - 180;           
-        }
+        
     }
 }
