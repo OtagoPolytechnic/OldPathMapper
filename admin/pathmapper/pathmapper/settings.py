@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'pathmapperapp',
     'geoposition',
-    'easy_maps',
 ]
 
 MIDDLEWARE_CLASSES = [
