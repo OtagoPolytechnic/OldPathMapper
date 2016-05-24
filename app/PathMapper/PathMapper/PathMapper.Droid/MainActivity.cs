@@ -10,16 +10,22 @@ using Xamarin.Forms.Platform.Android;
 
 namespace PathMapper.Droid
 {
+    
+
     [Activity(Label = "PathMapper", Icon = "@drawable/icon", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity
     {
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-
+            
             global::Xamarin.Forms.Forms.Init(this, bundle);
+            global::Xamarin.FormsMaps.Init(this, bundle);
             LoadApplication(new App());
+
         }
+
+        
     }
 }
 
