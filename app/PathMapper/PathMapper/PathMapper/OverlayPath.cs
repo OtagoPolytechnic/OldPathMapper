@@ -41,7 +41,7 @@ namespace PathMapper
             customMap.PathCoordinates.Add(new Position(-45.856636, 170.521193));
             customMap.PathCoordinates.Add(new Position(-45.856691, 170.521513));
 
-            customMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(-45.856542, 170.518708), Distance.FromMiles(1.0)));
+            customMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(-45.857086, 170.519698), Distance.FromMiles(0.1)));
             Content = customMap;
         }
 
