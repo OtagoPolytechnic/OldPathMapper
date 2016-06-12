@@ -15,6 +15,7 @@ namespace PathMapper
 
             // demonstrates the map control with zooming and map-types
             tabs.Children.Add(new MapPage { Title = "Map" });
+            tabs.Children.Add(new OverlayPath { Title = "Path" });
 
             MainPage = tabs;
         }
