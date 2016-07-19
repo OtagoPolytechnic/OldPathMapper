@@ -20,11 +20,7 @@ namespace PathMapper.Droid
         {
             base.OnElementChanged(e);
 
-            if (e.OldElement != null)
-            {
-                // Unsubscribe
-            }
-
+           
             if (e.NewElement != null)
             {
                 var formsMap = (CustomMap)e.NewElement;
