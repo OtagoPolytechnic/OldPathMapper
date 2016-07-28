@@ -140,3 +140,6 @@ GEOPOSITION_MARKER_OPTIONS = {
     'cursor': 'move',
     'position': {'lat':-45.858037301486206, 'lng': 170.52034378051758},
 }
+
+# SET YOUR OWN GEOS LIBRARY PATH
+GEOS_LIBRARY_PATH = 'C:\\Users\\Alan\\AppData\\Local\\Programs\\Python\\Python35-32\\Lib\\site-packages\\django\\contrib\\gis\\geos\\libgeos_c.so'
