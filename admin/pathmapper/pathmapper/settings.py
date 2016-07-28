@@ -142,4 +142,4 @@ GEOPOSITION_MARKER_OPTIONS = {
 }
 
 # SET YOUR OWN GEOS LIBRARY PATH
-GEOS_LIBRARY_PATH = 'C:\\Users\\Alan\\AppData\\Local\\Programs\\Python\\Python35-32\\Lib\\site-packages\\django\\contrib\\gis\\geos\\libgeos_c.so'
+#GEOS_LIBRARY_PATH = 'C:\\OSGeo4W64\\bin\\geos_c.dll'

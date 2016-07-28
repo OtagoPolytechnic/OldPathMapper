@@ -1,6 +1,5 @@
 from django.contrib.gis.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
-from geoposition.fields import GeopositionField
 
 class Plant(models.Model):
     name = models.CharField(max_length=100)
