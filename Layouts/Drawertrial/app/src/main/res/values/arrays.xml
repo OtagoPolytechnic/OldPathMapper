@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="trackArray">
+        <item>Easy</item>
+        <item>Medium</item>
+        <item>Hard</item>
+    </array>
+    <array name="infoArray">
+        <item>Hours</item>
+        <item>Prohibited</item>
+        <item>Statistics</item>
+        <item>Seasonal Attractions</item>
+    </array>
+</resources>

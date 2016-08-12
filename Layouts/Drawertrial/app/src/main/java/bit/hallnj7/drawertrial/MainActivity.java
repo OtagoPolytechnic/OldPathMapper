@@ -1,5 +1,6 @@
 package bit.hallnj7.drawertrial;
 
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -15,10 +16,15 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener
+{
+
+    TracksAlertBuilder chooseTracks;
+    InformationAlertBuilder chooseInfo;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -34,16 +40,25 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
+    public boolean onNavigationItemSelected(MenuItem item)
+    {
         int id = item.getItemId();
 
-        if (id == R.id.nav_tracks) {
+        if (id == R.id.nav_tracks)
+        {
             Toast.makeText(MainActivity.this, "You pressed tracks", Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.nav_info) {
+            chooseTracks = new TracksAlertBuilder();
+            FragmentManager fm = getFragmentManager();
+            chooseTracks.show(fm, "confirm");
+        }
 
+        else if (id == R.id.nav_info)
+        {
+            Toast.makeText(MainActivity.this, "You pressed Information", Toast.LENGTH_SHORT).show();
+            chooseInfo = new InformationAlertBuilder();
+            FragmentManager fragm = getFragmentManager();
+            chooseInfo.show(fragm, "confirm");
         } 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
