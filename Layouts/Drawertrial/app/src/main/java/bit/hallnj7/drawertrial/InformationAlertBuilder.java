@@ -10,7 +10,10 @@ import android.os.Bundle;
 public class InformationAlertBuilder extends DialogFragment
 {
     HoursAlertBuilder hourAlert;
-    String[] items = { "John", "Michael", "Vincent", "Dalisay" };
+    StatisticsAlertBuilder statisticAlert;
+    SeasonAlertBuilder seasonAlert;
+    ProhibitedAlertBuilder prohibitAlert;
+    String[] items = { "Hours", "Prohibited", "Statistics", "Seasonal attractions", "Back" };
 
     public InformationAlertBuilder() {}
 
@@ -24,11 +27,25 @@ public class InformationAlertBuilder extends DialogFragment
             public void onClick(DialogInterface dialog, int item)
             {
                 String chosen = items[item];
-                if (chosen == "John")
+                if (chosen == "Hours")
                 {
                     hourAlert = new HoursAlertBuilder();
                     FragmentManager hourFragm = getFragmentManager();
                     hourAlert.show(hourFragm, "confirm");
+                }
+
+                else if (chosen == "Prohibited")
+                {
+                    prohibitAlert = new ProhibitedAlertBuilder();
+                    FragmentManager prohibitFragm = getFragmentManager();
+                    prohibitAlert.show(prohibitFragm, "confirm");
+                }
+
+                else if (chosen == "Statistics")
+                {
+                    statisticAlert = new StatisticsAlertBuilder();
+                    FragmentManager statsFragm = getFragmentManager();
+                    statisticAlert.show(statsFragm, "confirm");
                 }
             }
         });
