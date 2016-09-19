@@ -41,13 +41,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         PolylineOptions polylineOptions = new PolylineOptions()
-                .add(new LatLng(-45.865706, 170.519403)) // Point A.
-                .add(new LatLng(-45.866434, 170.517721)); // Point B.
+                .add(new LatLng(-45.8717394, 170.5052885))
+                .add(new LatLng(-45.87194246, 170.50623422))
+                .add(new LatLng(-45.87218882, 170.5074134))
+                .add(new LatLng(-45.87181774, 170.5081125))
+                .add(new LatLng(-45.87153469, 170.50902052))
+                .add(new LatLng(-45.8716645, 170.51009266))
+                .add(new LatLng(-45.87121341, 170.51085667))
+                .add(new LatLng(-45.87106118, 170.51205239))
+                .add(new LatLng(-45.87004808, 170.51278776));
 
         Polyline polyline = mMap.addPolyline(polylineOptions);
 
         // Add a marker in Sydney and move the camera
-        LatLng polytech = new LatLng(-45.865706, 170.519403);
+        LatLng polytech = new LatLng(-45.8717394, 170.5052885);
         mMap.addMarker(new MarkerOptions().position(polytech).title("Marker Tech D-Block"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(polytech));
         mMap.moveCamera(CameraUpdateFactory.zoomTo(16));
