@@ -49,7 +49,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .add(new LatLng(-45.8716645, 170.51009266))
                 .add(new LatLng(-45.87121341, 170.51085667))
                 .add(new LatLng(-45.87106118, 170.51205239))
-                .add(new LatLng(-45.87004808, 170.51278776));
+                .add(new LatLng(-45.87004808, 170.51278776))
+                .add(new LatLng(-45.86977145, 170.51349811))
+                .add(new LatLng(-45.86964466, 170.51452877))
+                .add(new LatLng(-45.8683551, 170.51512202 ))
+                .add(new LatLng(-45.86753009, 170.5155919 ))
+                .add(new LatLng(-45.86739763, 170.51673611 ))
+                .add(new LatLng(-45.86715364, 170.51759911));
 
         Polyline polyline = mMap.addPolyline(polylineOptions);
 
