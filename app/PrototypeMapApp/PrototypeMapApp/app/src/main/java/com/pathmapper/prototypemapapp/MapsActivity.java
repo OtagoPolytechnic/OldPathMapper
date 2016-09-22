@@ -2,6 +2,7 @@ package com.pathmapper.prototypemapapp;
 
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -11,9 +12,16 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
+import com.google.maps.android.clustering.ClusterManager;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+import org.json.JSONException;
 
+import java.io.InputStream;
+import java.util.List;
+
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
+{
+    private ClusterManager<MarkerPrototype> mClusterManager;
     private GoogleMap mMap;
 
     @Override
@@ -37,7 +45,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      * installed Google Play services and returned to the app.
      */
     @Override
-    public void onMapReady(GoogleMap googleMap) {
+    public void onMapReady(GoogleMap googleMap)
+    {
         mMap = googleMap;
 
         PolylineOptions polylineOptions = new PolylineOptions()
@@ -64,5 +73,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.addMarker(new MarkerOptions().position(polytech).title("Marker Tech D-Block"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(polytech));
         mMap.moveCamera(CameraUpdateFactory.zoomTo(16));
+
+        mClusterManager = new ClusterManager<MarkerPrototype>(this, mMap);
+        mMap.setOnCameraIdleListener(mClusterManager);
+
+        try {
+            readItems();
+        } catch (JSONException e) {
+            Toast.makeText(this, "Problem reading list of markers.", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private void readItems() throws JSONException {
+        InputStream inputStream = getResources().openRawResource(R.raw.poly_areas);
+        List<MarkerPrototype> items = new MyItemReader().read(inputStream);
+        mClusterManager.addItems(items);
     }
 }
